@@ -1,0 +1,5 @@
+{
+  "extends": [
+    "github>kiruyuto/renovate-config"
+  ]
+}

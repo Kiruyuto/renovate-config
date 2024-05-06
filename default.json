@@ -1,0 +1,25 @@
+{
+  "enabled": true,
+  "description": "Default config used by @Kiruyuto",
+  "extends": [
+    "config:recommended",
+    "group:allNonMajor",
+    ":gitSignOff",
+    ":dependencyDashboard",
+    ":enableVulnerabilityAlerts"
+  ],
+  "branchConcurrentLimit": 10,
+  "rangeStrategy": "pin",
+  "labels": [
+    "dependencies"
+  ],
+  "assigneesFromCodeOwners": true,
+  "branchPrefix": "dependencies/",
+  "prCreation": "immediate",
+  "prConcurrentLimit": 0,
+  "prBodyTemplate": "{{{header}}}{{{table}}}{{{warnings}}}{{{notes}}}{{{changelogs}}}{{{controls}}}{{{footer}}}",
+  "commitMessageLowerCase": "never",
+  "semanticCommits": "enabled",
+  "semanticCommitScope": "deps",
+  "semanticCommitType": "chore"
+}

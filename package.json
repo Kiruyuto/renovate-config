@@ -1,0 +1,21 @@
+{
+  "name": "kiruyuto-renovate-config",
+  "description": "Renovate config used in most of @Kiruyuto repositories",
+  "version": "0.0.0",
+  "license": "MIT",
+  "packageManager": "^bun@1.1.7",
+  "homepage": "https://github.com/Kiruyuto/kiruyuto-renovate-config",
+  "bugs": "https://github.com/Kiruyuto/kiruyuto-renovate-config/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Kiruyuto/kiruyuto-renovate-config.git"
+  },
+  "scripts": {
+    "validate": "renovate-config-validator .github/renovate.json default.json",
+    "release": "bun run validate && changelogen --release && git push --follow-tags"
+  },
+  "devDependencies": {
+    "changelogen": "^0.5.5",
+    "renovate": "latest"
+  }
+}
