@@ -11,7 +11,6 @@
   "labels": [
     "dependencies"
   ],
-  "branchConcurrentLimit": 10,
   "rangeStrategy": "bump",
   "assigneesFromCodeOwners": true,
   "branchPrefix": "dependencies/",
