@@ -18,13 +18,13 @@ Add `"github>kiruyuto/renovate-config"` to `extends` section in your`renovate.js
 ```
 
 ## How to configure it further?
-You can either override any of the [settings](https://docs.renovatebot.com/configuration-options/) in this configuration by adding them to your `renovate.json` file.  
+You can override any of the [settings](https://docs.renovatebot.com/configuration-options/) in this configuration by adding them to your `renovate.json` file.  
 For example, to change the conventional commits `scope` and use `dependencies` instead of `deps`, you can add the following to your `renovate.json` file, below the `extends` section:
-```json
+```jsonc
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [ "github>kiruyuto/renovate-config" ],
-  "semanticCommitScope": "deps"
+  "extends": [ "github>kiruyuto/renovate-config" ], // Please note this has default scope of "deps"
+  "semanticCommitScope": "dependencies" // This will override commit scope to "dependencies"
 }
 ```
 
