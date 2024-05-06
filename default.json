@@ -8,11 +8,11 @@
     ":dependencyDashboard",
     ":enableVulnerabilityAlerts"
   ],
-  "branchConcurrentLimit": 10,
-  "rangeStrategy": "pin",
   "labels": [
     "dependencies"
   ],
+  "branchConcurrentLimit": 10,
+  "rangeStrategy": "bump",
   "assigneesFromCodeOwners": true,
   "branchPrefix": "dependencies/",
   "prCreation": "immediate",
