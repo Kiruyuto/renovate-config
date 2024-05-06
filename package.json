@@ -15,7 +15,7 @@
     "release": "bun run validate && changelogen --release && git push --follow-tags"
   },
   "devDependencies": {
-    "changelogen": "^0.5.5",
+    "changelogen": "0.5.5",
     "renovate": "latest"
   }
 }
