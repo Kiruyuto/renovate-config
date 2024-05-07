@@ -19,7 +19,7 @@
   "prCreation": "immediate",
   "prConcurrentLimit": 0,
   "prBodyTemplate": "{{{header}}}{{{table}}}{{{warnings}}}{{{notes}}}{{{changelogs}}}{{{controls}}}{{{footer}}}",
-  "dependencyDashboardFooter": "Renovate extends from @Kiruyuto's default configuration. You can see all settings [here](https://github.com/Kiruyuto/renovate-config/blob/master/default.json)",
+  "dependencyDashboardFooter": "Renovate extends from Kiruyuto's default configuration. You can see all settings [here](https://github.com/Kiruyuto/renovate-config/blob/master/default.json)",
   "commitMessageLowerCase": "never",
   "semanticCommits": "enabled",
   "semanticCommitScope": "deps",
