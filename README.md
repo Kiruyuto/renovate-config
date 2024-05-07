@@ -15,7 +15,7 @@
 - Enables `Dependency Dashboard` for quick overview of dependencies
 - Assigns created PRs to the code owners
 - Rebases PRs whenever conflicts arise
-- Attempts to create PRs whenever your renovate config becomes out-of-date
+- Attempts to create migration PRs whenever your renovate config becomes out-of-date
 - & more!
 
 ## 📥 Usage
