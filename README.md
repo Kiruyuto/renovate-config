@@ -14,7 +14,7 @@
 - Enables Renovate commit signing
 - Enables `Dependency Dashboard` for quick overview of dependencies
 - Assigns created PRs to the code owners
-- Rebases PRs whenever update branch falls behind the target branch
+- Rebases PRs whenever conflicts arise
 - Attempts to create PRs whenever your renovate config becomes out-of-date
 - & more!
 
