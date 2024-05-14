@@ -39,7 +39,6 @@
       "description": "AWS based packages for nuget & npm will be checked on weekly basis as they are updates way too often",
       "matchDatasources": ["nuget", "npm"],
       "matchPackageNames": ["aws-sdk", "AWSSDK"],
-      "matchPackagePatterns": ["^@aws-sdk/"],
       "extends": ["schedule:weekly"]
     }
   ]
