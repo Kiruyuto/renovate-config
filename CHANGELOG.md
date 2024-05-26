@@ -1,6 +1,27 @@
 # Changelog
 
 
+## v0.1.2
+
+[compare changes](https://github.com/Kiruyuto/renovate-config/compare/v0.1.1...v0.1.2)
+
+### 🩹 Fixes
+
+- Remove accidentally copy-pasted text ([9bbe35b](https://github.com/Kiruyuto/renovate-config/commit/9bbe35b))
+- Remove matching package patterns from AWS based packages rule ([450e209](https://github.com/Kiruyuto/renovate-config/commit/450e209))
+
+### 🏡 Chore
+
+- Adjust dependency dashboard footer to make it less invasive ([df4edc5](https://github.com/Kiruyuto/renovate-config/commit/df4edc5))
+- Adjust renovate rebasing policy ([8e12dbc](https://github.com/Kiruyuto/renovate-config/commit/8e12dbc))
+- Update README.md ([ab9cf89](https://github.com/Kiruyuto/renovate-config/commit/ab9cf89))
+- Adjust footer chore: Adjust footer chore: Adjust dashboard dependency footer Update default.json ([ade5215](https://github.com/Kiruyuto/renovate-config/commit/ade5215))
+
+### ❤️ Contributors
+
+- Hubert@Home ([@Kiruyuto](http://github.com/Kiruyuto))
+- Hubert ([@Kiruyuto](http://github.com/Kiruyuto))
+
 ## v0.1.1
 
 [compare changes](https://github.com/Kiruyuto/renovate-config/compare/v0.1.0...v0.1.1)
