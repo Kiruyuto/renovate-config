@@ -20,7 +20,7 @@
   "prConcurrentLimit": 0,
   "automerge": false,
   "prBodyTemplate": "{{{header}}}{{{table}}}{{{warnings}}}{{{notes}}}{{{changelogs}}}{{{controls}}}{{{footer}}}",
-  "dependencyDashboardFooter": "Renovate extends from Kiruyuto's default configuration. You can see all settings [here](https://github.com/Kiruyuto/renovate-config/blob/master/default.json)",
+  "dependencyDashboardFooter": "<h6>Renovate extends from Kiruyuto's default configuration. You can see all settings <a href=\"https://github.com/Kiruyuto/renovate-config/blob/master/default.json\">here</a></h6>\n\n- [ ] <!-- manual job -->Check this box to trigger a request for Renovate to run again on this repository",
   "commitMessageLowerCase": "never",
   "semanticCommits": "enabled",
   "semanticCommitScope": "deps",
