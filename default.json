@@ -12,7 +12,6 @@
   "labels": ["dependencies"],
   "dependencyDashboardLabels": ["dependencies"],
   "rangeStrategy": "bump",
-  "assigneesFromCodeOwners": true,
   "commitBodyTable": true,
   "configMigration": true,
   "branchPrefix": "dependencies/",

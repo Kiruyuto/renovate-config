@@ -13,7 +13,7 @@
 - Major updates require manual approval in the dependency dashboard before PR is created
 - Enables Renovate commit signing
 - Enables `Dependency Dashboard` for quick overview of dependencies
-- Assigns created PRs to the code owners
+<!-- - Assigns created PRs to the code owners -->
 - Rebases PRs whenever conflicts arise
 - Attempts to create migration PRs whenever your renovate config becomes out-of-date
 - & more!
