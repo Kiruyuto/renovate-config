@@ -29,11 +29,13 @@
   },
   "patch": {
     "automerge": true,
-    "automergeType": "branch"
+    "automergeType": "branch",
+    "automergeStrategy": "squash"
   },
   "minor": {
     "automerge": true,
-    "automergeType": "branch"
+    "automergeType": "branch",
+    "automergeStrategy": "squash"
   },
   "packageRules": [
     {
