@@ -1,6 +1,23 @@
 # Changelog
 
 
+## v0.1.3
+
+[compare changes](https://github.com/Kiruyuto/renovate-config/compare/v0.1.2...v0.1.3)
+
+### 🚀 Enhancements
+
+- Auto-merge patch-type updates ([a4fa069](https://github.com/Kiruyuto/renovate-config/commit/a4fa069))
+- Auto-merge minor-type updates ([2464d6d](https://github.com/Kiruyuto/renovate-config/commit/2464d6d))
+
+### 🏡 Chore
+
+- Remove codeowners as assignees for PRs ([39b74a3](https://github.com/Kiruyuto/renovate-config/commit/39b74a3))
+
+### ❤️ Contributors
+
+- Hubert@Home ([@Kiruyuto](http://github.com/Kiruyuto))
+
 ## v0.1.2
 
 [compare changes](https://github.com/Kiruyuto/renovate-config/compare/v0.1.1...v0.1.2)
