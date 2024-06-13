@@ -31,6 +31,10 @@
     "automerge": true,
     "automergeType": "branch"
   },
+  "minor": {
+    "automerge": true,
+    "automergeType": "branch"
+  },
   "packageRules": [
     {
       "description": "Always use 'chore' for semantic commit type",
