@@ -3,7 +3,7 @@
   <p>
     <small>My personally fine-tuned <a href="https://www.mend.io/renovate-free/">Mend Renovate</a> configuration</small>
   </p>
-  <img alt="Latest Release" src="https://img.shields.io/github/v/release/kiruyuto/renovate-config"/>
+<!--  <img alt="Latest Release" src="https://img.shields.io/github/v/release/kiruyuto/renovate-config"/> -->
 </div>
 
 # 🚀 Key Features
