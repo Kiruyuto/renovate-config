@@ -14,7 +14,7 @@
   "rangeStrategy": "bump",
   "commitBodyTable": true,
   "configMigration": true,
-  "branchPrefix": "dependencies/",
+  "branchPrefix": "deps/",
   "prCreation": "immediate",
   "prConcurrentLimit": 0,
   "prBodyTemplate": "{{{header}}}{{{table}}}{{{warnings}}}{{{notes}}}{{{changelogs}}}{{{controls}}}{{{footer}}}",
@@ -44,7 +44,7 @@
       "semanticCommitType": "chore"
     },
     {
-      "description": "AWS based packages for nuget & npm will be checked on weekly basis as they are updates way too often",
+      "description": "AWS based packages for nuget & npm will be checked on weekly basis as they are updated way too often",
       "matchDatasources": ["nuget", "npm"],
       "matchPackageNames": ["aws-sdk", "AWSSDK"],
       "extends": ["schedule:weekly"]

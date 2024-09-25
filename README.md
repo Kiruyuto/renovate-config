@@ -13,7 +13,6 @@
 - Major updates require manual approval in the dependency dashboard before PR is created
 - Enables Renovate commit signing
 - Enables `Dependency Dashboard` for quick overview of dependencies
-<!-- - Assigns created PRs to the code owners -->
 - Rebases PRs whenever conflicts arise
 - Attempts to create migration PRs whenever your renovate config becomes out-of-date
 - & more!
@@ -41,8 +40,6 @@ For example, to change the conventional commits `scope` and use `dependencies` i
 ## ✅ Validate the configuration
 You can validate the configuration in this repo by running the following command:
 ```bash
-# Install dependencies and run validation. 
-# Installation is required only once.
 bun install && bun run validate
 ```
 or check the official docs on how to [validate](https://docs.renovatebot.com/config-validation/) your own file!

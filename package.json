@@ -12,11 +12,9 @@
     "url": "https://github.com/Kiruyuto/renovate-config.git"
   },
   "scripts": {
-    "validate": "renovate-config-validator --strict .github/renovate.json default.json",
-    "release": "bun run validate && changelogen --release && git push --follow-tags"
+    "validate": "renovate-config-validator --strict .github/renovate.json default.json"
   },
   "devDependencies": {
-    "changelogen": "^0.5.5",
     "renovate": "latest"
   }
 }
