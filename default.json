@@ -11,7 +11,7 @@
   ],
   "labels": ["dependencies"],
   "dependencyDashboardLabels": ["dependencies"],
-  "rangeStrategy": "bump",
+  "rangeStrategy": "pin",
   "commitBodyTable": true,
   "configMigration": true,
   "branchPrefix": "deps/",
