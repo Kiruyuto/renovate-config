@@ -40,7 +40,7 @@
   },
   "lockFileMaintenance": {
     "enabled": true,
-    "rebaseStalePrs": true
+    "rebaseWhen": "behind-base-branch"
   },
   "packageRules": [
     {
