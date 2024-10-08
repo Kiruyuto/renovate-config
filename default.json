@@ -11,7 +11,7 @@
   ],
   "labels": ["dependencies"],
   "dependencyDashboardLabels": ["dependencies"],
-  "rangeStrategy": "pin",
+  "rangeStrategy": "bump",
   "commitBodyTable": true,
   "configMigration": true,
   "branchPrefix": "deps/",
@@ -25,6 +25,7 @@
   "rebaseWhen": "conflicted",
   "major": {
     "description": "Require dashboard approval for major updates",
+    "automerge": false,
     "dependencyDashboardApproval": true
   },
   "patch": {
@@ -37,6 +38,10 @@
     "automergeType": "branch",
     "automergeStrategy": "squash"
   },
+  "lockFileMaintenance": {
+    "enabled": true,
+    "rebaseStalePrs": true
+  },
   "packageRules": [
     {
       "description": "Always use 'chore' for semantic commit type",
@@ -48,6 +53,11 @@
       "matchDatasources": ["nuget", "npm"],
       "matchPackageNames": ["aws-sdk", "AWSSDK"],
       "extends": ["schedule:weekly"]
+    },
+    {
+      "description": "Pin only NPM packages. Otherwise bump. Prevents errors with dotnet & docker builds",
+      "matchDatasources": ["npm"],
+      "rangeStrategy": "pin"
     }
   ]
 }
