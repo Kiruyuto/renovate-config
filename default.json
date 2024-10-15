@@ -7,8 +7,10 @@
     "group:allNonMajor",
     ":gitSignOff",
     ":dependencyDashboard",
-    ":enableVulnerabilityAlerts"
+    ":enableVulnerabilityAlerts",
+    ":disableRateLimiting"
   ],
+  "schedule": ["at any time"],
   "labels": ["dependencies"],
   "dependencyDashboardLabels": ["dependencies"],
   "rangeStrategy": "bump",
@@ -16,7 +18,6 @@
   "configMigration": true,
   "branchPrefix": "deps/",
   "prCreation": "immediate",
-  "prConcurrentLimit": 0,
   "prBodyTemplate": "{{{header}}}{{{table}}}{{{warnings}}}{{{notes}}}{{{changelogs}}}{{{controls}}}{{{footer}}}",
   "dependencyDashboardFooter": "<h6>Renovate extends from Kiruyuto's default configuration. You can see all settings <a href=\"https://github.com/Kiruyuto/renovate-config/blob/master/default.json\">here</a></h6>\n\n- [ ] <!-- manual job -->Check this box to trigger a request for Renovate to run again on this repository",
   "commitMessageLowerCase": "never",
@@ -58,6 +59,17 @@
       "description": "Pin only NPM packages. Otherwise bump. Prevents errors with dotnet & docker builds",
       "matchDatasources": ["npm"],
       "rangeStrategy": "pin"
+    }
+  ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "Match dotnet version in github workflows",
+      "fileMatch": ["^\\.github/workflows/.+?\\.yaml$"],
+      "matchStrings": [
+        "# renovate: datasource=(?<datasource>.+?) depName=(?<depName>.+?)(?: packageName=(?<packageName>.+?))?\\s+dotnet-version: (?<currentValue>.+?)\\s"
+      ],
+      "depTypeTemplate": "action"
     }
   ]
 }
