@@ -10,9 +10,15 @@
     ":enableVulnerabilityAlerts",
     ":disableRateLimiting"
   ],
-  "schedule": ["at any time"],
-  "labels": ["dependencies"],
-  "dependencyDashboardLabels": ["dependencies"],
+  "schedule": [
+    "at any time"
+  ],
+  "labels": [
+    "dependencies"
+  ],
+  "dependencyDashboardLabels": [
+    "dependencies"
+  ],
   "rangeStrategy": "bump",
   "commitBodyTable": true,
   "configMigration": true,
@@ -46,18 +52,30 @@
   "packageRules": [
     {
       "description": "Always use 'chore' for semantic commit type",
-      "matchFileNames": ["**/*"],
+      "matchFileNames": [
+        "**/*"
+      ],
       "semanticCommitType": "chore"
     },
     {
       "description": "AWS based packages for nuget & npm will be checked on weekly basis as they are updated way too often",
-      "matchDatasources": ["nuget", "npm"],
-      "matchPackageNames": ["aws-sdk", "AWSSDK"],
-      "extends": ["schedule:weekly"]
+      "matchDatasources": [
+        "nuget",
+        "npm"
+      ],
+      "matchPackageNames": [
+        "aws-sdk",
+        "AWSSDK"
+      ],
+      "extends": [
+        "schedule:weekly"
+      ]
     },
     {
       "description": "Pin only NPM packages. Otherwise bump. Prevents errors with dotnet & docker builds",
-      "matchDatasources": ["npm"],
+      "matchDatasources": [
+        "npm"
+      ],
       "rangeStrategy": "pin"
     }
   ],
@@ -65,7 +83,10 @@
     {
       "customType": "regex",
       "description": "Match dotnet version in github workflows",
-      "fileMatch": ["^\\.github/workflows/.+?\\.yaml$"],
+      "fileMatch": [
+        "^\\.github/workflows/.+?\\.yaml$",
+        "^\\.github/workflows/.+?\\.yml$"
+      ],
       "matchStrings": [
         "# renovate: datasource=(?<datasource>.+?) depName=(?<depName>.+?)(?: packageName=(?<packageName>.+?))?\\s+dotnet-version: (?<currentValue>.+?)\\s"
       ],
