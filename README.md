@@ -1,7 +1,7 @@
 <div align="center">
   <h1>@Kiruyuto renovate-config</h1>
   <p>
-    <small>My personally fine-tuned <a href="https://www.mend.io/renovate-free/">Mend Renovate</a> configuration</small>
+    <small>Personally fine-tuned <a href="https://www.mend.io/renovate-free/">Mend Renovate</a> configuration</small>
   </p>
 <!--  <img alt="Latest Release" src="https://img.shields.io/github/v/release/kiruyuto/renovate-config"/> -->
 </div>
