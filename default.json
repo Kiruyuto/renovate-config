@@ -90,7 +90,8 @@
       "matchStrings": [
         "# renovate: datasource=(?<datasource>.+?) depName=(?<depName>.+?)(?: packageName=(?<packageName>.+?))?\\s+dotnet-version: (?<currentValue>.+?)\\s"
       ],
-      "depTypeTemplate": "action"
+      "depTypeTemplate": "action",
+      "rangeStrategy": "pin"
     }
   ]
 }
