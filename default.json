@@ -77,17 +77,6 @@
         "npm"
       ],
       "rangeStrategy": "pin"
-    },
-    {
-      "description": "Pin dotnet-version in github workflows",
-      "matchDepTypes": [
-        "actions dotnet-version"
-      ],
-      "matchFileNames": [
-        "^\\.github/workflows/.+?\\.yaml$",
-        "^\\.github/workflows/.+?\\.yml$"
-      ],
-      "rangeStrategy": "pin"
     }
   ],
   "customManagers": [
@@ -99,9 +88,12 @@
         "^\\.github/workflows/.+?\\.yml$"
       ],
       "matchStrings": [
-        "# renovate: datasource=(?<datasource>.+?) depName=(?<depName>.+?)(?: packageName=(?<packageName>.+?))?\\s+dotnet-version: (?<currentValue>.+?)\\s"
+        "with:\\s+dotnet-version: (['\"])?(?<currentValue>.+?)\\1\\s"
       ],
-      "depTypeTemplate": "action dotnet-version"
+      "depTypeTemplate": "actions dotnet-version",
+      "datasourceTemplate": "dotnet",
+      "depNameTemplate": "dotnet-sdk",
+      "versioningTemplate": "semver-coerced"
     }
   ]
 }
