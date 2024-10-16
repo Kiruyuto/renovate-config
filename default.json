@@ -77,12 +77,23 @@
         "npm"
       ],
       "rangeStrategy": "pin"
+    },
+    {
+      "description": "Pin dotnet-version in github workflows",
+      "matchDepTypes": [
+        "actions dotnet-version"
+      ],
+      "matchFileNames": [
+        "^\\.github/workflows/.+?\\.yaml$",
+        "^\\.github/workflows/.+?\\.yml$"
+      ],
+      "rangeStrategy": "pin"
     }
   ],
   "customManagers": [
     {
       "customType": "regex",
-      "description": "Match dotnet version in github workflows",
+      "description": "Match dotnet-version in github workflows",
       "fileMatch": [
         "^\\.github/workflows/.+?\\.yaml$",
         "^\\.github/workflows/.+?\\.yml$"
@@ -90,8 +101,7 @@
       "matchStrings": [
         "# renovate: datasource=(?<datasource>.+?) depName=(?<depName>.+?)(?: packageName=(?<packageName>.+?))?\\s+dotnet-version: (?<currentValue>.+?)\\s"
       ],
-      "depTypeTemplate": "action",
-      "rangeStrategy": "pin"
+      "depTypeTemplate": "action dotnet-version"
     }
   ]
 }
