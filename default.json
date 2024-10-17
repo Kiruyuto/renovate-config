@@ -7,7 +7,6 @@
     "group:allNonMajor",
     ":gitSignOff",
     ":dependencyDashboard",
-    ":enableVulnerabilityAlerts",
     ":disableRateLimiting"
   ],
   "schedule": [
@@ -48,6 +47,21 @@
   "lockFileMaintenance": {
     "enabled": true,
     "rebaseWhen": "behind-base-branch"
+  },
+  "vulnerabilityAlerts": {
+    "enabled": true,
+    "schedule": [
+      "at any time"
+    ],
+    "dependencyDashboardApproval": false,
+    "rangeStrategy": "update-lockfile",
+    "commitMessageSuffix": "[SECURITY]",
+    "branchTopic": "{{{datasource}}}-{{{depNameSanitized}}}-vulnerability",
+    "prCreation": "immediate",
+    "automerge": false,
+    "labels": [
+      "security"
+    ]
   },
   "packageRules": [
     {
@@ -92,9 +106,26 @@
         "with:\\s+dotnet-version: '(?<currentValue>.+?)'\\s",
         "with:\\s+dotnet-version: \"(?<currentValue>.+?)\"\\s"
       ],
-      "depTypeTemplate": "actions dotnet-version",
+      "depTypeTemplate": "actions",
       "datasourceTemplate": "dotnet",
-      "depNameTemplate": "dotnet-sdk",
+      "depNameTemplate": "dotnet-sdk version",
+      "versioningTemplate": "semver-coerced"
+    },
+    {
+      "customType": "regex",
+      "description": "Match node-version in github workflows",
+      "fileMatch": [
+        "^\\.github/workflows/.+?\\.yaml$",
+        "^\\.github/workflows/.+?\\.yml$"
+      ],
+      "matchStrings": [
+        "with:\\s+node-version: (?<currentValue>.+?)\\s",
+        "with:\\s+node-version: '(?<currentValue>.+?)'\\s",
+        "with:\\s+node-version: \"(?<currentValue>.+?)\"\\s"
+      ],
+      "depTypeTemplate": "actions",
+      "datasourceTemplate": "node",
+      "depNameTemplate": "node version",
       "versioningTemplate": "semver-coerced"
     }
   ]
