@@ -102,9 +102,7 @@
         "^\\.github/workflows/.+?\\.yml$"
       ],
       "matchStrings": [
-        "with:\\s+dotnet-version: (?<currentValue>.+?)\\s",
-        "with:\\s+dotnet-version: '(?<currentValue>.+?)'\\s",
-        "with:\\s+dotnet-version: \"(?<currentValue>.+?)\"\\s"
+        "with:\\s+dotnet-version: (?<currentValue>.+?)\\s"
       ],
       "depTypeTemplate": "actions",
       "datasourceTemplate": "dotnet",
@@ -119,9 +117,7 @@
         "^\\.github/workflows/.+?\\.yml$"
       ],
       "matchStrings": [
-        "with:\\s+node-version: (?<currentValue>.+?)\\s",
-        "with:\\s+node-version: '(?<currentValue>.+?)'\\s",
-        "with:\\s+node-version: \"(?<currentValue>.+?)\"\\s"
+        "with:\\s+node-version: (?<currentValue>.+?)\\s"
       ],
       "depTypeTemplate": "actions",
       "datasourceTemplate": "node",
