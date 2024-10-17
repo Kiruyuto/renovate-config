@@ -105,8 +105,8 @@
         "with:\\s+dotnet-version: (?<currentValue>.+?)\\s"
       ],
       "depTypeTemplate": "actions",
-      "datasourceTemplate": "dotnet",
-      "depNameTemplate": "dotnet-sdk version",
+      "datasourceTemplate": "dotnet-version",
+      "depNameTemplate": "dotnet-sdk",
       "versioningTemplate": "semver-coerced"
     },
     {
@@ -120,8 +120,8 @@
         "with:\\s+node-version: (?<currentValue>.+?)\\s"
       ],
       "depTypeTemplate": "actions",
-      "datasourceTemplate": "node",
-      "depNameTemplate": "node version",
+      "datasourceTemplate": "node-version",
+      "depNameTemplate": "node",
       "versioningTemplate": "semver-coerced"
     }
   ]
