@@ -27,7 +27,7 @@
   "dependencyDashboardFooter": "<h6>Renovate extends from Kiruyuto's default configuration. You can see all settings <a href=\"https://github.com/Kiruyuto/renovate-config/blob/master/default.json\">here</a></h6>\n\n- [ ] <!-- manual job -->Check this box to trigger a request for Renovate to run again on this repository",
   "commitMessageLowerCase": "never",
   "semanticCommits": "enabled",
-  "semanticCommitScope": "deps",
+  "semanticCommitScope": "dependencies",
   "rebaseWhen": "conflicted",
   "major": {
     "description": "Require dashboard approval for major updates",
