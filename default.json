@@ -117,9 +117,9 @@
     {
       "customType": "regex",
       "description": "Match dotnet-version in github workflows",
-      "fileMatch": [
-        "^\\.github/workflows/.+?\\.yaml$",
-        "^\\.github/workflows/.+?\\.yml$"
+      "managerFilePatterns": [
+        "/^\\.github/workflows/.+?\\.yaml$/",
+        "/^\\.github/workflows/.+?\\.yml$/"
       ],
       "matchStrings": [
         "with:\\s+dotnet-version: (?<currentValue>.+?)\\s"
@@ -132,9 +132,9 @@
     {
       "customType": "regex",
       "description": "Match node-version in github workflows",
-      "fileMatch": [
-        "^\\.github/workflows/.+?\\.yaml$",
-        "^\\.github/workflows/.+?\\.yml$"
+      "managerFilePatterns": [
+        "/^\\.github/workflows/.+?\\.yaml$/",
+        "/^\\.github/workflows/.+?\\.yml$/"
       ],
       "matchStrings": [
         "with:\\s+node-version: (?<currentValue>.+?)\\s"
