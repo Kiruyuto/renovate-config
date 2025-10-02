@@ -2,12 +2,6 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "enabled": true,
   "description": "Default Renovate config used by @Kiruyuto",
-  "baseBranchPatterns": [
-    "master",
-    "main",
-    "dev",
-    "develop"
-  ],
   "extends": [
     "config:recommended",
     "group:allNonMajor",
