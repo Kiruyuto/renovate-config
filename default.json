@@ -2,6 +2,12 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "enabled": true,
   "description": "Default Renovate config used by @Kiruyuto",
+  "baseBranchPatterns": [
+    "master",
+    "main",
+    "dev",
+    "develop"
+  ],
   "extends": [
     "config:recommended",
     "group:allNonMajor",
@@ -66,13 +72,6 @@
   },
   "packageRules": [
     {
-      "matchFileNames": [
-        ".github/**"
-      ],
-      "additionalBranchPrefix": "github-",
-      "commitMessageSuffix": "(ci)"
-    },
-    {
       "description": "Always use 'chore' for semantic commit type",
       "matchFileNames": [
         "**/*"
@@ -80,37 +79,53 @@
       "semanticCommitType": "chore"
     },
     {
-      "description": "AWS based packages for nuget & npm will be checked on weekly basis as they are updated way too often",
-      "matchDatasources": [
-        "nuget",
-        "npm"
+      "description": "Group all GitHub Actions updates into single PR",
+      "matchFileNames": [
+        ".github/**"
       ],
-      "matchPackageNames": [
-        "aws-sdk",
-        "AWSSDK"
-      ],
-      "extends": [
-        "schedule:weekly"
-      ]
+      "additionalBranchPrefix": "github-",
+      "commitMessageSuffix": "(ci)"
     },
     {
-      "description": "Reduce noise of Meziantou analyzers",
+      "description": "Pin only NPM packages. Otherwise bump. Prevents errors with dotnet & docker builds. Additionally, group them into separate PRs",
+      "matchDatasources": [
+        "npm"
+      ],
+      "rangeStrategy": "pin",
+      "additionalBranchPrefix": "npm-",
+      "commitMessageSuffix": "(npm)"
+    },
+    {
+      "description": "Group all Docker updates into single PR",
+      "matchDatasources": [
+        "docker"
+      ],
+      "additionalBranchPrefix": "docker-",
+      "commitMessageSuffix": "(docker)"
+    },
+    {
+      "description": "Group all NuGet updates into single PR",
       "matchDatasources": [
         "nuget"
       ],
-      "matchPackageNames": [
-        "Meziantou.Analyzer"
-      ],
-      "extends": [
-        "schedule:weekly"
-      ]
+      "additionalBranchPrefix": "nuget-",
+      "commitMessageSuffix": "(.NET)"
     },
     {
-      "description": "Pin only NPM packages. Otherwise bump. Prevents errors with dotnet & docker builds",
+      "description": "Group all .NET SDK updates into single PR",
       "matchDatasources": [
-        "npm"
+        "dotnet-version"
       ],
-      "rangeStrategy": "pin"
+      "additionalBranchPrefix": "dotnet-",
+      "commitMessageSuffix": "(dotnet)"
+    },
+    {
+      "description": "Group all Node.js updates into single PR",
+      "matchDatasources": [
+        "node-version"
+      ],
+      "additionalBranchPrefix": "node-",
+      "commitMessageSuffix": "(node)"
     }
   ],
   "customManagers": [
