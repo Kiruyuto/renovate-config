@@ -103,7 +103,7 @@
         "nuget"
       ],
       "additionalBranchPrefix": "nuget-",
-      "commitMessageSuffix": "(.NET)"
+      "commitMessageSuffix": "(nuget)"
     },
     {
       "description": "Group all .NET SDK updates into single PR",
