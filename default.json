@@ -140,21 +140,6 @@
     },
     {
       "customType": "regex",
-      "description": "Match node-version in github workflows",
-      "managerFilePatterns": [
-        "/^\\.github/workflows/.+?\\.yaml$/",
-        "/^\\.github/workflows/.+?\\.yml$/"
-      ],
-      "matchStrings": [
-        "with:\\s+node-version: (?<currentValue>.+?)\\s"
-      ],
-      "depTypeTemplate": "actions",
-      "datasourceTemplate": "node-version",
-      "depNameTemplate": "node",
-      "versioningTemplate": "semver-coerced"
-    },
-    {
-      "customType": "regex",
       "description": "Match .nuspec <dependency> tag",
       "managerFilePatterns": [
         "/\\.nuspec$/"
