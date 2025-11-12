@@ -165,7 +165,7 @@
         "<TargetFramework>net(?<currentValue>\\d+\\.\\d+)</TargetFramework>"
       ],
       "datasourceTemplate": "dotnet-version",
-      "versioningTemplate": "loose"
+      "versioningTemplate": "semver-partial"
     }
   ]
 }
