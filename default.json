@@ -153,6 +153,20 @@
       ],
       "datasourceTemplate": "nuget",
       "versioningTemplate": "nuget"
+    },
+    {
+      "customType": "regex",
+      "description": "Match <TargetFramework/> in .NET project files",
+      "managerFilePatterns": [
+        "/^Directory\\.Build\\.props$/",
+        "/\\.csproj$/"
+      ],
+      "matchStrings": [
+        "<TargetFramework>net(?<currentValue>\\d+\\.\\d+)</TargetFramework>"
+      ],
+      "datasourceTemplate": "dotnet-version",
+      "depNameTemplate": "dotnet-tfm",
+      "versioningTemplate": "loose"
     }
   ]
 }
