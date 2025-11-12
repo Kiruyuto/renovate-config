@@ -72,6 +72,26 @@
       "semanticCommitType": "chore"
     },
     {
+      "description": "Group all remaining non-major dependencies",
+      "groupName": "all non-major dependencies",
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "matchDatasources": [
+        "!(nuget)"
+      ],
+      "matchDepNames": [
+        "!dotnet-sdk",
+        "!TargetFramework",
+        "!mcr.microsoft.com/dotnet/aspnet",
+        "!mcr.microsoft.com/dotnet/sdk",
+        "!mcr.microsoft.com/dotnet/runtime",
+        "!mcr.microsoft.com/dotnet/runtime-deps",
+        "!mcr.microsoft.com/dotnet/aspire-dashboard"
+      ]
+    },
+    {
       "description": "Group all GitHub Actions updates into single PR",
       "matchFileNames": [
         ".github/workflows/**"
@@ -146,26 +166,6 @@
       ],
       "additionalBranchPrefix": "node-",
       "commitMessageSuffix": "(node)"
-    },
-    {
-      "description": "Group all remaining non-major dependencies",
-      "groupName": "all non-major dependencies",
-      "matchUpdateTypes": [
-        "minor",
-        "patch"
-      ],
-      "matchDatasources": [
-        "!(nuget)"
-      ],
-      "matchDepNames": [
-        "!dotnet-sdk",
-        "!TargetFramework",
-        "!mcr.microsoft.com/dotnet/aspnet",
-        "!mcr.microsoft.com/dotnet/sdk",
-        "!mcr.microsoft.com/dotnet/runtime",
-        "!mcr.microsoft.com/dotnet/runtime-deps",
-        "!mcr.microsoft.com/dotnet/aspire-dashboard"
-      ]
     }
   ],
   "customManagers": [
