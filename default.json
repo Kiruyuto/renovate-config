@@ -131,9 +131,9 @@
         "/^\\.github/workflows/.+?\\.yml$/"
       ],
       "matchStrings": [
-        "with:\\s+dotnet-version: (?<currentValue>.+?)\\s"
+        "dotnet-version:\\s+(?<currentValue>\\S+)"
       ],
-      "depTypeTemplate": "actions",
+      "depTypeTemplate": "dotnet",
       "datasourceTemplate": "dotnet-version",
       "depNameTemplate": "dotnet-sdk",
       "versioningTemplate": "semver-coerced"
