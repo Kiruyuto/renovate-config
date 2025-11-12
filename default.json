@@ -165,7 +165,6 @@
         "<TargetFramework>net(?<currentValue>\\d+\\.\\d+)</TargetFramework>"
       ],
       "datasourceTemplate": "dotnet-version",
-      "depNameTemplate": "dotnet-sdk",
       "versioningTemplate": "loose"
     }
   ]
