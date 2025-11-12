@@ -4,7 +4,6 @@
   "description": "Default Renovate config used by @Kiruyuto",
   "extends": [
     "config:recommended",
-    "group:allNonMajor",
     ":gitSignOff",
     ":dependencyDashboard",
     ":disableRateLimiting",
@@ -77,11 +76,11 @@
       "matchFileNames": [
         ".github/workflows/**"
       ],
-      "matchDepTypes": [
-        "!dotnet"
-      ],
       "additionalBranchPrefix": "gh-actions-",
-      "commitMessageSuffix": "(ci)"
+      "commitMessageSuffix": "(ci)",
+      "matchDepNames": [
+        "!dotnet-sdk"
+      ]
     },
     {
       "description": "Group all Docker updates into single PR",
@@ -89,23 +88,47 @@
         "docker"
       ],
       "additionalBranchPrefix": "docker-",
-      "commitMessageSuffix": "(docker)"
+      "commitMessageSuffix": "(docker)",
+      "matchPackageNames": [
+        "!mcr.microsoft.com/dotnet/aspnet",
+        "!mcr.microsoft.com/dotnet/sdk",
+        "!mcr.microsoft.com/dotnet/runtime",
+        "!mcr.microsoft.com/dotnet/runtime-deps",
+        "!mcr.microsoft.com/dotnet/aspire-dashboard"
+      ]
     },
     {
-      "description": "Group all .NET SDK updates into single PR",
+      "description": "Group all .NET major version updates together",
+      "groupName": ".NET Major Version",
       "matchDatasources": [
-        "dotnet-version"
+        "dotnet-version",
+        "custom.dotnet-channel",
+        "docker",
+        "nuget"
       ],
+      "matchUpdateTypes": [
+        "major"
+      ],
+      "commitMessageTopic": ".NET",
       "additionalBranchPrefix": "dotnet-",
       "commitMessageSuffix": "(dotnet)"
     },
     {
-      "description": "Group all NuGet updates into single PR",
+      "description": "Group all .NET minor and patch updates together",
+      "groupName": ".NET Minor/Patch Updates",
       "matchDatasources": [
+        "dotnet-version",
+        "custom.dotnet-channel",
+        "docker",
         "nuget"
       ],
-      "additionalBranchPrefix": "nuget-",
-      "commitMessageSuffix": "(nuget)"
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "commitMessageTopic": ".NET",
+      "additionalBranchPrefix": "dotnet-",
+      "commitMessageSuffix": "(dotnet)"
     },
     {
       "description": "Pin only NPM packages. Otherwise bump. Prevents errors with dotnet & docker builds. Additionally, group them into separate PRs",
@@ -123,6 +146,26 @@
       ],
       "additionalBranchPrefix": "node-",
       "commitMessageSuffix": "(node)"
+    },
+    {
+      "description": "Group all remaining non-major dependencies",
+      "groupName": "all non-major dependencies",
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "matchDatasources": [
+        "!(nuget)"
+      ],
+      "matchDepNames": [
+        "!dotnet-sdk",
+        "!TargetFramework",
+        "!mcr.microsoft.com/dotnet/aspnet",
+        "!mcr.microsoft.com/dotnet/sdk",
+        "!mcr.microsoft.com/dotnet/runtime",
+        "!mcr.microsoft.com/dotnet/runtime-deps",
+        "!mcr.microsoft.com/dotnet/aspire-dashboard"
+      ]
     }
   ],
   "customManagers": [
@@ -164,7 +207,7 @@
       "matchStrings": [
         "<TargetFramework>net(?<currentValue>\\d+\\.\\d+)</TargetFramework>"
       ],
-      "depNameTemplate": "dotnet-channel",
+      "depNameTemplate": "TargetFramework",
       "datasourceTemplate": "custom.dotnet-channel",
       "versioningTemplate": "loose"
     }
