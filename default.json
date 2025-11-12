@@ -73,6 +73,17 @@
       "semanticCommitType": "chore"
     },
     {
+      "description": "Group all GitHub Actions updates into single PR",
+      "matchFileNames": [
+        ".github/workflows/**"
+      ],
+      "matchDepTypes": [
+        "!dotnet"
+      ],
+      "additionalBranchPrefix": "gh-actions-",
+      "commitMessageSuffix": "(ci)"
+    },
+    {
       "description": "Group all Docker updates into single PR",
       "matchDatasources": [
         "docker"
@@ -113,17 +124,6 @@
       "additionalBranchPrefix": "node-",
       "commitMessageSuffix": "(node)"
     },
-    {
-      "description": "Group all GitHub Actions updates into single PR",
-      "matchFileNames": [
-        ".github/workflows/**"
-      ],
-      "matchDepTypes": [
-        "!dotnet"
-      ],
-      "additionalBranchPrefix": "gh-actions-",
-      "commitMessageSuffix": "(ci)"
-    }
   ],
   "customManagers": [
     {
