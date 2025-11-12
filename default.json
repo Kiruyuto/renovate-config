@@ -221,7 +221,7 @@
       "description": "Channel. Used for <TargetFramework/> updates in .NET project files",
       "defaultRegistryUrlTemplate": "https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
       "transformTemplates": [
-        "{\"releases\": `releases-index`.{\"version\": `channel-version`}}"
+        "{\"releases\": `releases-index`.{\"version\": `channel-version`}, \"sourceUrl\": \"https://github.com/dotnet/sdk\", \"homepage\": \"https://dotnet.microsoft.com/\"}"
       ]
     }
   }
