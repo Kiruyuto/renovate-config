@@ -73,12 +73,28 @@
       "semanticCommitType": "chore"
     },
     {
-      "description": "Group all GitHub Actions updates into single PR",
-      "matchFileNames": [
-        ".github/**"
+      "description": "Group all Docker updates into single PR",
+      "matchDatasources": [
+        "docker"
       ],
-      "additionalBranchPrefix": "github-",
-      "commitMessageSuffix": "(ci)"
+      "additionalBranchPrefix": "docker-",
+      "commitMessageSuffix": "(docker)"
+    },
+    {
+      "description": "Group all .NET SDK updates into single PR",
+      "matchDatasources": [
+        "dotnet-version"
+      ],
+      "additionalBranchPrefix": "dotnet-",
+      "commitMessageSuffix": "(dotnet)"
+    },
+    {
+      "description": "Group all NuGet updates into single PR",
+      "matchDatasources": [
+        "nuget"
+      ],
+      "additionalBranchPrefix": "nuget-",
+      "commitMessageSuffix": "(nuget)"
     },
     {
       "description": "Pin only NPM packages. Otherwise bump. Prevents errors with dotnet & docker builds. Additionally, group them into separate PRs",
@@ -90,36 +106,23 @@
       "commitMessageSuffix": "(npm)"
     },
     {
-      "description": "Group all Docker updates into single PR",
-      "matchDatasources": [
-        "docker"
-      ],
-      "additionalBranchPrefix": "docker-",
-      "commitMessageSuffix": "(docker)"
-    },
-    {
-      "description": "Group all NuGet updates into single PR",
-      "matchDatasources": [
-        "nuget"
-      ],
-      "additionalBranchPrefix": "nuget-",
-      "commitMessageSuffix": "(nuget)"
-    },
-    {
-      "description": "Group all .NET SDK updates into single PR",
-      "matchDatasources": [
-        "dotnet-version"
-      ],
-      "additionalBranchPrefix": "dotnet-",
-      "commitMessageSuffix": "(dotnet)"
-    },
-    {
       "description": "Group all Node.js updates into single PR",
       "matchDatasources": [
         "node-version"
       ],
       "additionalBranchPrefix": "node-",
       "commitMessageSuffix": "(node)"
+    },
+    {
+      "description": "Group all GitHub Actions updates into single PR",
+      "matchFileNames": [
+        ".github/workflows/**"
+      ],
+      "matchDepTypes": [
+        "!dotnet"
+      ],
+      "additionalBranchPrefix": "gh-actions-",
+      "commitMessageSuffix": "(ci)"
     }
   ],
   "customManagers": [
