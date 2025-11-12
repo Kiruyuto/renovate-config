@@ -37,12 +37,12 @@
   },
   "patch": {
     "automerge": true,
-    "automergeType": "branch",
+    "automergeType": "pr",
     "automergeStrategy": "squash"
   },
   "minor": {
     "automerge": true,
-    "automergeType": "branch",
+    "automergeType": "pr",
     "automergeStrategy": "squash"
   },
   "lockFileMaintenance": {
