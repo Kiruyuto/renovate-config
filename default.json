@@ -93,6 +93,7 @@
     },
     {
       "description": "Group all GitHub Actions updates into single PR",
+      "groupName": "GitHub Actions dependencies",
       "matchFileNames": [
         ".github/workflows/**"
       ],
@@ -104,6 +105,7 @@
     },
     {
       "description": "Group all Docker updates into single PR",
+      "groupName": "Docker dependencies",
       "matchDatasources": [
         "docker"
       ],
@@ -119,7 +121,7 @@
     },
     {
       "description": "Group all .NET major version updates together",
-      "groupName": ".NET Major Version",
+      "groupName": ".NET Major dependencies",
       "matchDatasources": [
         "dotnet-version",
         "custom.dotnet-channel",
@@ -135,7 +137,7 @@
     },
     {
       "description": "Group all .NET minor and patch updates together",
-      "groupName": ".NET Minor/Patch Updates",
+      "groupName": ".NET non-Major dependencies",
       "matchDatasources": [
         "dotnet-version",
         "custom.dotnet-channel",
@@ -161,6 +163,7 @@
     },
     {
       "description": "Group all Node.js updates into single PR",
+      "groupName": "Node.js dependencies",
       "matchDatasources": [
         "node-version"
       ],
