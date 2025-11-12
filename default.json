@@ -123,7 +123,7 @@
       ],
       "additionalBranchPrefix": "node-",
       "commitMessageSuffix": "(node)"
-    },
+    }
   ],
   "customManagers": [
     {
@@ -164,8 +164,18 @@
       "matchStrings": [
         "<TargetFramework>net(?<currentValue>\\d+\\.\\d+)</TargetFramework>"
       ],
-      "datasourceTemplate": "dotnet-version",
-      "versioningTemplate": "semver-partial"
+      "depNameTemplate": "dotnet-channel",
+      "datasourceTemplate": "custom.dotnet-channel",
+      "versioningTemplate": "loose"
     }
-  ]
+  ],
+  "customDatasources": {
+    "dotnet-channel": {
+      "description": "Channel. Used for <TargetFramework/> updates in .NET project files",
+      "defaultRegistryUrlTemplate": "https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
+      "transformTemplates": [
+        "{\"releases\": data.{\"version\": `channel-version`, \"releaseTimestamp\": `latest-release-date`, \"isDeprecated\": `support-phase` != 'active'}, \"sourceUrl\": \"https://github.com/dotnet/sdk\", \"homepage\": \"https://dotnet.microsoft.com/\"}"
+      ]
+    }
+  }
 }
