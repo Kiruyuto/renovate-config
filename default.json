@@ -132,7 +132,6 @@
       "matchUpdateTypes": [
         "major"
       ],
-      "commitMessageTopic": ".NET",
       "additionalBranchPrefix": "dotnet-",
       "commitMessageSuffix": "(dotnet)"
     },
@@ -149,7 +148,6 @@
         "minor",
         "patch"
       ],
-      "commitMessageTopic": ".NET",
       "additionalBranchPrefix": "dotnet-",
       "commitMessageSuffix": "(dotnet)"
     },
