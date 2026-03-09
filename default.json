@@ -99,7 +99,6 @@
         ".github/workflows/**"
       ],
       "additionalBranchPrefix": "gh-actions-",
-      "commitMessageSuffix": "(ci)",
       "matchDepNames": [
         "!dotnet-sdk"
       ]
@@ -111,7 +110,6 @@
         "docker"
       ],
       "additionalBranchPrefix": "docker-",
-      "commitMessageSuffix": "(docker)",
       "matchPackageNames": [
         "!mcr.microsoft.com/dotnet/**"
       ]
@@ -127,8 +125,7 @@
       "matchUpdateTypes": [
         "major"
       ],
-      "additionalBranchPrefix": "dotnet-",
-      "commitMessageSuffix": "(dotnet)"
+      "additionalBranchPrefix": "dotnet-"
     },
     {
       "description": "Group all .NET Docker major version updates together",
@@ -142,8 +139,7 @@
       "matchUpdateTypes": [
         "major"
       ],
-      "additionalBranchPrefix": "dotnet-",
-      "commitMessageSuffix": "(dotnet)"
+      "additionalBranchPrefix": "dotnet-"
     },
     {
       "description": "Group all .NET minor and patch updates together",
@@ -157,8 +153,7 @@
         "minor",
         "patch"
       ],
-      "additionalBranchPrefix": "dotnet-",
-      "commitMessageSuffix": "(dotnet)"
+      "additionalBranchPrefix": "dotnet-"
     },
     {
       "description": "Group all .NET Docker minor and patch updates together",
@@ -173,8 +168,7 @@
         "minor",
         "patch"
       ],
-      "additionalBranchPrefix": "dotnet-",
-      "commitMessageSuffix": "(dotnet)"
+      "additionalBranchPrefix": "dotnet-"
     },
     {
       "description": "Pin only NPM packages. Otherwise bump. Prevents errors with dotnet & docker builds. Additionally, group them into separate PRs",
@@ -182,8 +176,7 @@
         "npm"
       ],
       "rangeStrategy": "pin",
-      "additionalBranchPrefix": "npm-",
-      "commitMessageSuffix": "(npm)"
+      "additionalBranchPrefix": "npm-"
     },
     {
       "description": "Group all Node.js updates into single PR",
@@ -191,8 +184,7 @@
       "matchDatasources": [
         "node-version"
       ],
-      "additionalBranchPrefix": "node-",
-      "commitMessageSuffix": "(node)"
+      "additionalBranchPrefix": "node-"
     }
   ],
   "customManagers": [
