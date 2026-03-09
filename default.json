@@ -113,11 +113,7 @@
       "additionalBranchPrefix": "docker-",
       "commitMessageSuffix": "(docker)",
       "matchPackageNames": [
-        "!mcr.microsoft.com/dotnet/aspnet",
-        "!mcr.microsoft.com/dotnet/sdk",
-        "!mcr.microsoft.com/dotnet/runtime",
-        "!mcr.microsoft.com/dotnet/runtime-deps",
-        "!mcr.microsoft.com/dotnet/aspire-dashboard"
+        "!mcr.microsoft.com/dotnet/**"
       ]
     },
     {
@@ -126,8 +122,22 @@
       "matchDatasources": [
         "dotnet-version",
         "custom.dotnet-channel",
-        "docker",
         "nuget"
+      ],
+      "matchUpdateTypes": [
+        "major"
+      ],
+      "additionalBranchPrefix": "dotnet-",
+      "commitMessageSuffix": "(dotnet)"
+    },
+    {
+      "description": "Group all .NET Docker major version updates together",
+      "groupName": ".NET Major dependencies",
+      "matchDatasources": [
+        "docker"
+      ],
+      "matchPackageNames": [
+        "mcr.microsoft.com/dotnet/**"
       ],
       "matchUpdateTypes": [
         "major"
@@ -141,8 +151,23 @@
       "matchDatasources": [
         "dotnet-version",
         "custom.dotnet-channel",
-        "docker",
         "nuget"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "additionalBranchPrefix": "dotnet-",
+      "commitMessageSuffix": "(dotnet)"
+    },
+    {
+      "description": "Group all .NET Docker minor and patch updates together",
+      "groupName": ".NET non-Major dependencies",
+      "matchDatasources": [
+        "docker"
+      ],
+      "matchPackageNames": [
+        "mcr.microsoft.com/dotnet/**"
       ],
       "matchUpdateTypes": [
         "minor",
