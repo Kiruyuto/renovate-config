@@ -10,15 +10,17 @@
     "helpers:pinGitHubActionDigests",
     "abandonments:recommended"
   ],
-  "schedule": [
-    "at any time"
-  ],
   "labels": [
     "dependencies"
   ],
   "dependencyDashboardLabels": [
     "dependencies"
   ],
+  "schedule": [
+    "* 0-7 * * 1"
+  ],
+  "updateNotScheduled": true,
+  "ignoreTests": false,
   "rangeStrategy": "bump",
   "commitBodyTable": true,
   "configMigration": true,
