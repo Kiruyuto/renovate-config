@@ -186,7 +186,8 @@
       "matchDatasources": [
         "node-version"
       ],
-      "additionalBranchPrefix": "node-"
+      "additionalBranchPrefix": "node-",
+      "minimumReleaseAge": "7"
     }
   ],
   "customManagers": [
