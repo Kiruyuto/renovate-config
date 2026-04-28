@@ -15,6 +15,6 @@
     "validate": "renovate-config-validator --strict .github/renovate.json default.json"
   },
   "devDependencies": {
-    "renovate": "latest"
+    "renovate": "43.146.0"
   }
 }
