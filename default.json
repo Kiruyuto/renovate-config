@@ -32,6 +32,9 @@
   "semanticCommits": "enabled",
   "semanticCommitScope": "dependencies",
   "rebaseWhen": "conflicted",
+  "baseBranchPatterns": [
+    "master"
+  ],
   "major": {
     "description": "Require dashboard approval for major updates",
     "automerge": false,
