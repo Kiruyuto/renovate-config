@@ -129,6 +129,14 @@
       "rangeStrategy": "pin"
     },
     {
+      "description": "Group npm dependencies",
+      "groupName": "npm dependencies",
+      "groupSlug": "npm",
+      "matchDatasources": [
+        "npm"
+      ]
+    },
+    {
       "description": "Group GitHub Actions dependencies, including composite actions",
       "groupName": "GitHub Actions dependencies",
       "groupSlug": "github-actions",
@@ -142,6 +150,9 @@
       "groupSlug": "docker",
       "matchDatasources": [
         "docker"
+      ],
+      "matchPackageNames": [
+        "!mcr.microsoft.com/dotnet/**"
       ]
     },
     {
@@ -168,7 +179,7 @@
     {
       "description": "Group pinning updates separately for each category",
       "matchJsonata": [
-        "groupName in ['.NET dependencies', 'GitHub Actions dependencies', 'Docker dependencies']"
+        "groupName in ['.NET dependencies', 'npm dependencies', 'GitHub Actions dependencies', 'Docker dependencies']"
       ],
       "matchUpdateTypes": [
         "pin",
@@ -183,7 +194,7 @@
     {
       "description": "Keep digest-only updates in separate manual PRs for each group",
       "matchJsonata": [
-        "groupName in ['.NET dependencies', 'GitHub Actions dependencies', 'Docker dependencies']"
+        "groupName in ['.NET dependencies', 'npm dependencies', 'GitHub Actions dependencies', 'Docker dependencies']"
       ],
       "matchUpdateTypes": [
         "digest"
