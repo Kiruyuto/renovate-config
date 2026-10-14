@@ -15,7 +15,7 @@
     "url": "https://github.com/Kiruyuto/renovate-config.git"
   },
   "scripts": {
-    "validate": "renovate-config-validator --strict .github/renovate.json default.json"
+    "validate": "renovate-config-validator --strict --no-global .github/renovate.json default.json"
   },
   "devDependencies": {
     "renovate": "44.155.8"

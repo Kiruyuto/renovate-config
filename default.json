@@ -8,7 +8,8 @@
     ":dependencyDashboard",
     ":disableRateLimiting",
     "helpers:pinGitHubActionDigests",
-    "abandonments:recommended"
+    "abandonments:recommended",
+    "security:minimumReleaseAgeNpm"
   ],
   "constraints": {
     "ghActionsLock": "v0.2.0"
@@ -19,24 +20,30 @@
   "dependencyDashboardLabels": [
     "dependencies"
   ],
+  "dependencyDashboardOSVVulnerabilitySummary": "all",
+  "timezone": "Europe/Warsaw",
   "schedule": [
     "* 0-7 * * 1"
   ],
   "updateNotScheduled": true,
   "ignoreTests": false,
   "rangeStrategy": "bump",
+  "pinDigests": false,
   "commitBodyTable": true,
   "configMigration": true,
   "branchPrefix": "deps/",
   "prCreation": "immediate",
+  "automergeType": "pr",
+  "automergeStrategy": "squash",
+  "separateMajorMinor": true,
   "prBodyTemplate": "{{{header}}}{{{table}}}{{{warnings}}}{{{notes}}}{{{changelogs}}}{{{controls}}}{{{footer}}}",
   "dependencyDashboardFooter": "<h6>Renovate extends from Kiruyuto's default configuration. You can see all settings <a href=\"https://github.com/Kiruyuto/renovate-config/blob/master/default.json\">here</a></h6>\n\n- [ ] <!-- manual job -->Check this box to trigger a request for Renovate to run again on this repository",
   "commitMessageLowerCase": "never",
   "semanticCommits": "enabled",
   "semanticCommitScope": "dependencies",
-  "rebaseWhen": "conflicted",
+  "rebaseWhen": "behind-base-branch",
   "baseBranchPatterns": [
-    "master"
+    "$default"
   ],
   "major": {
     "description": "Require dashboard approval for major updates",
@@ -44,19 +51,22 @@
     "dependencyDashboardApproval": true
   },
   "patch": {
-    "automerge": true,
-    "automergeType": "pr",
-    "automergeStrategy": "squash"
+    "automerge": true
   },
   "minor": {
-    "automerge": true,
-    "automergeType": "pr",
-    "automergeStrategy": "squash"
+    "automerge": true
+  },
+  "pin": {
+    "automerge": true
+  },
+  "pinDigest": {
+    "automerge": true
   },
   "lockFileMaintenance": {
     "enabled": true,
     "rebaseWhen": "behind-base-branch"
   },
+  "osvVulnerabilityAlerts": true,
   "vulnerabilityAlerts": {
     "enabled": true,
     "schedule": [
@@ -81,136 +91,124 @@
       "semanticCommitType": "chore"
     },
     {
-      "description": "Group all remaining non-major dependencies",
-      "groupName": "all non-major dependencies",
-      "matchUpdateTypes": [
-        "minor",
-        "patch"
-      ],
-      "matchDatasources": [
-        "!(nuget)"
+      "description": "Preserve platform versions when updating target frameworks (net8.0-windows8.0 -> net9.0-windows8.0)",
+      "matchManagers": [
+        "custom.regex"
       ],
       "matchDepNames": [
-        "!dotnet-sdk",
-        "!TargetFramework",
-        "!mcr.microsoft.com/dotnet/aspnet",
-        "!mcr.microsoft.com/dotnet/sdk",
-        "!mcr.microsoft.com/dotnet/runtime",
-        "!mcr.microsoft.com/dotnet/runtime-deps",
-        "!mcr.microsoft.com/dotnet/aspire-dashboard"
-      ]
-    },
-    {
-      "description": "Group all GitHub Actions updates into single PR",
-      "groupName": "GitHub Actions dependencies",
-      "matchFileNames": [
-        ".github/workflows/**"
+        "TargetFramework"
       ],
-      "additionalBranchPrefix": "gh-actions-",
-      "matchDepNames": [
-        "!dotnet-sdk"
-      ]
+      "autoReplaceGlobalMatch": false
     },
     {
-      "description": "Group all Docker updates into single PR",
-      "groupName": "Docker dependencies",
+      "description": "Pin npm packages and Node.js runtime versions",
       "matchDatasources": [
-        "docker"
+        "npm",
+        "node-version"
       ],
-      "additionalBranchPrefix": "docker-",
-      "matchPackageNames": [
-        "!mcr.microsoft.com/dotnet/**"
-      ]
+      "rangeStrategy": "pin"
     },
     {
-      "description": "Group all .NET major version updates together",
-      "groupName": ".NET Major dependencies",
-      "matchDatasources": [
-        "dotnet-version",
-        "custom.dotnet-channel",
-        "nuget"
-      ],
-      "matchUpdateTypes": [
-        "major"
-      ],
-      "additionalBranchPrefix": "dotnet-"
-    },
-    {
-      "description": "Group all .NET Docker major version updates together",
-      "groupName": ".NET Major dependencies",
-      "matchDatasources": [
-        "docker"
-      ],
-      "matchPackageNames": [
-        "mcr.microsoft.com/dotnet/**"
-      ],
-      "matchUpdateTypes": [
-        "major"
-      ],
-      "additionalBranchPrefix": "dotnet-"
-    },
-    {
-      "description": "Group all .NET minor and patch updates together",
-      "groupName": ".NET non-Major dependencies",
-      "matchDatasources": [
-        "dotnet-version",
-        "custom.dotnet-channel",
-        "nuget"
-      ],
-      "matchUpdateTypes": [
-        "minor",
-        "patch"
-      ],
-      "additionalBranchPrefix": "dotnet-"
-    },
-    {
-      "description": "Group all .NET Docker minor and patch updates together",
-      "groupName": ".NET non-Major dependencies",
-      "matchDatasources": [
-        "docker"
-      ],
-      "matchPackageNames": [
-        "mcr.microsoft.com/dotnet/**"
-      ],
-      "matchUpdateTypes": [
-        "minor",
-        "patch"
-      ],
-      "additionalBranchPrefix": "dotnet-"
-    },
-    {
-      "description": "Pin only NPM packages. Otherwise bump. Prevents errors with dotnet & docker builds. Additionally, group them into separate PRs",
+      "description": "Preserve npm peer dependency ranges",
       "matchDatasources": [
         "npm"
       ],
-      "rangeStrategy": "pin",
-      "additionalBranchPrefix": "npm-"
+      "matchDepTypes": [
+        "peerDependencies"
+      ],
+      "rangeStrategy": "widen"
     },
     {
-      "description": "Group all Node.js updates into single PR",
-      "groupName": "Node.js dependencies",
+      "description": "Pin Node.js runtime versions used by setup-node",
       "matchDatasources": [
-        "node-version"
+        "github-releases"
       ],
-      "additionalBranchPrefix": "node-",
-      "minimumReleaseAge": "14"
+      "matchPackageNames": [
+        "actions/node-versions"
+      ],
+      "rangeStrategy": "pin"
+    },
+    {
+      "description": "Group GitHub Actions dependencies, including composite actions",
+      "groupName": "GitHub Actions dependencies",
+      "groupSlug": "github-actions",
+      "matchManagers": [
+        "github-actions"
+      ]
+    },
+    {
+      "description": "Group Docker images outside the .NET family",
+      "groupName": "Docker dependencies",
+      "groupSlug": "docker",
+      "matchDatasources": [
+        "docker"
+      ]
+    },
+    {
+      "description": "Group NuGet packages, target frameworks and .NET SDK/runtime versions",
+      "groupName": ".NET dependencies",
+      "groupSlug": "dotnet",
+      "matchDatasources": [
+        "dotnet-version",
+        "custom.dotnet-channel",
+        "nuget"
+      ]
+    },
+    {
+      "description": "Include .NET Docker images in the .NET group without adding digest pins",
+      "groupName": ".NET dependencies",
+      "groupSlug": "dotnet",
+      "matchDatasources": [
+        "docker"
+      ],
+      "matchPackageNames": [
+        "mcr.microsoft.com/dotnet/**"
+      ]
+    },
+    {
+      "description": "Group pinning updates separately for each category",
+      "matchJsonata": [
+        "groupName in ['.NET dependencies', 'GitHub Actions dependencies', 'Docker dependencies']"
+      ],
+      "matchUpdateTypes": [
+        "pin",
+        "pinDigest"
+      ],
+      "additionalBranchPrefix": "pins-",
+      "group": {
+        "branchTopic": "{{{groupSlug}}}",
+        "commitMessageTopic": "{{{groupName}}}"
+      }
+    },
+    {
+      "description": "Keep digest-only updates in separate manual PRs for each group",
+      "matchJsonata": [
+        "groupName in ['.NET dependencies', 'GitHub Actions dependencies', 'Docker dependencies']"
+      ],
+      "matchUpdateTypes": [
+        "digest"
+      ],
+      "additionalBranchPrefix": "manual-",
+      "automerge": false
     }
   ],
   "customManagers": [
     {
       "customType": "regex",
-      "description": "Match dotnet-version in github workflows",
+      "description": "Match scalar and multiline .NET SDK versions, including reusable-workflow and custom-action inputs",
       "managerFilePatterns": [
-        "/^\\.github/workflows/.+?\\.yaml$/",
-        "/^\\.github/workflows/.+?\\.yml$/"
+        "/(^|/)(workflow-templates|\\.(?:github|gitea|forgejo)/(?:workflows|actions))/.+\\.ya?ml$/",
+        "/(^|/)action\\.ya?ml$/"
       ],
+      "matchStringsStrategy": "recursive",
       "matchStrings": [
-        "dotnet-version:\\s+(?<currentValue>\\S+)"
+        "(?:^|\\r?\\n)[ \\t]*dotnet-version:[ \\t]*(?:[\"']?\\d[^\\r\\n]*|\\|(?:\\+?[ \\t]*(?:#[^\\r\\n]*)?\\r?\\n(?:[ \\t]+\\d[^\\r\\n]*(?:\\r?\\n|$)|[ \\t]*\\r?\\n)+|-[ \\t]*(?:#[^\\r\\n]*)?\\r?\\n(?:[ \\t]+\\d[^\\r\\n]*\\r?\\n(?:[ \\t]*\\r?\\n)*)+[ \\t]+\\d[^\\r\\n]*(?:\\r?\\n|$)))",
+        "(?:^|\\r?\\n)[ \\t]*(?:dotnet-version:[ \\t]*[\"']?)?(?<currentValue>\\d[^\\s\"']*)"
       ],
       "depTypeTemplate": "dotnet",
       "datasourceTemplate": "dotnet-version",
       "depNameTemplate": "dotnet-sdk",
-      "versioningTemplate": "semver-coerced"
+      "versioningTemplate": "npm"
     },
     {
       "customType": "regex",
@@ -218,22 +216,25 @@
       "managerFilePatterns": [
         "/\\.nuspec$/"
       ],
-      "matchStringsStrategy": "any",
+      "matchStringsStrategy": "recursive",
       "matchStrings": [
-        "<dependency\\s+id=\"(?<depName>.*?)\"\\s+version=\"(?<currentValue>.*?)\"\\s*\\/>"
+        "<!--[\\s\\S]*?-->|<dependency\\b[^>]*?\\sid\\s*=\\s*[\"'](?<depName>[^\"']+)[\"'][^>]*>",
+        "<!--[\\s\\S]*?-->|\\sversion\\s*=\\s*[\"'](?<currentValue>[^\"']+)[\"']"
       ],
       "datasourceTemplate": "nuget",
       "versioningTemplate": "nuget"
     },
     {
       "customType": "regex",
-      "description": "Match <TargetFramework/> in .NET project files",
+      "description": "Match individual target frameworks in .NET projects and shared build properties",
       "managerFilePatterns": [
-        "/^Directory\\.Build\\.props$/",
-        "/\\.csproj$/"
+        "/(^|/)Directory\\.Build\\.props$/",
+        "/\\.(?:cs|fs|vb)proj$/"
       ],
+      "matchStringsStrategy": "recursive",
       "matchStrings": [
-        "<TargetFramework>net(?<currentValue>\\d+\\.\\d+)</TargetFramework>"
+        "<!--[\\s\\S]*?-->|<TargetFrameworks?\\b[^>]*>[^<]*</TargetFrameworks?\\s*>",
+        "<!--[\\s\\S]*?-->|(?:>|;)[ \\t\\r\\n]*net(?<currentValue>\\d+\\.\\d+)(?:-[0-9A-Za-z.-]+)?"
       ],
       "depNameTemplate": "TargetFramework",
       "datasourceTemplate": "custom.dotnet-channel",
