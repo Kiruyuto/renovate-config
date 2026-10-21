@@ -18,6 +18,6 @@
     "validate": "renovate-config-validator --strict --no-global .github/renovate.json default.json"
   },
   "devDependencies": {
-    "renovate": "44.155.8"
+    "renovate": "44.166.0"
   }
 }
